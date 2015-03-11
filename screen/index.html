@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Full Frontal 2009 Schedule</title>
+<style>
+section { display: block; }
+body { font-size: 24px; height: 100%; font-family: helvetica; color: #fff; background: #39342d url(bg.jpg); font-family: "American Typewriter"; }
+body, p, li, ul { margin: 0; padding: 0; }
+.col { position: absolute; top: 0; left: 0; width: 50%; bottom: 0; }
+.col2 { left: 50%; right: 0; }
+.content { min-height: 408px; padding: 20px; background: rgba(222, 203, 175, 0.85); color: #000; position: absolute; top: 0; left: 0; right: 0; border: 0px solid #39342d; }
+.sponsors { width: 100%; height: 300px; padding-top: 30px; position: absolute; bottom: 0; text-align: center; background: rgb(57, 52, 45); }
+.sponsors img { margin: 10px 10px 10px 20px; border: 0; }
+#tweets { position: absolute; top: 0; height: 100%; width: 100%; overflow: hidden; background: rgba(57, 52, 45, 0.85); }
+#tweets p { margin: 14px;}
+#tweets a:hover, #tweets a:active, #tweets a:focus, #tweets a { text-decoration: none; }
+#tweets a:hover { text-decoration: underline; }
+#tweets a img { border: 0; }
+#tweets li { padding: 0; margin: 0; list-style: none; }
+.tweet { clear: left; min-height: 48px; padding: 9px; line-height: 1.1; position: relative; }
+#tweets li.searchterm { font-size: 22px; padding: 20px 0; }
+.vcard { margin-top: 5px; float: left;}
+.hentry { margin-left: 58px; }
+.hentry .meta { font-size: 0.764em; margin: 3px 0 0; display: block; }
+#tweets a { color: #A8D1FD; }
+.hentry .meta, #tweets .meta a { color: #999; }
+
+</style>
+</head>
+<body>
+<section class="col col1">
+  <section class="content">
+    
+  </section>
+  <section class="sponsors">
+    <a title="Yahoo! Developer Network" href="http://developer.yahoo.com/"><img alt="Yahoo! Developer Network" src="/images/sponsors/ydn.gif" /></a>
+    <a title="Guardian Open Platforms" href="http://www.guardian.co.uk/open-platform"><img alt="Guardian Open Platforms" src="/images/sponsors/guardian.gif" /></a>
+    <a title="Opera Software" href="http://opera.com"><img alt="Opera Software" src="/images/sponsors/opera.gif" /></a>
+    <a title="Dharmafly: apps for change" href="http://dharmafly.com/work-with-us"><img alt="Dharmafly: apps for change" src="/images/sponsors/dharmafly.gif" /></a>
+    <a href="http://netmag.co.uk"><img alt=".net magazine" src="/images/sponsors/dotnet.gif" /></a>
+    <a href="http://www.avtgroup.com/"><img alt="AVT" src="/images/sponsors/avt.gif" /></a>          
+    <a href="http://oreillygmt.eu"><img alt="O'Reilly" src="/images/sponsors/oreilly.gif" /></a>
+
+  </section>
+</section>
+<section class="col col2">
+<ul id="tweets">
+  <li><div class="tweet"><div class="vcard"><img style="height: 48px; width: 48px;" class="photo fn" height="48" src="http://a3.twimg.com/profile_images/130327897/full-frontal-logo_normal.png" width="48" /></div><div class="hentry">Following tweets from <a href="http://search.twitter.com/search?q=%40fullfrontalconf+OR+%23fullfrontalconf+OR+%23fullfrontal2009+OR+full-frontal.org+OR+%23fullfrontal09">search</a> and <a href="http://twitter.com/fullfrontalconf/delegates09">@fullfrontalconf/delegates09</a></div></div></li>
+</ul>
+</section>
+<script src="twitterlib.js"></script>
+<script src="jquery.js"></script>
+<script>
+var Queue = function (delay, callback) {
+  var q = [], 
+      timer = null, 
+      processed = {}, 
+      empty = null, 
+      ignoreRT = twitterlib.filter.format('-"RT @"'); // if you want to reuse this queue, ditch this reference
+  
+  function process() {
+    var item = null;
+    if (q.length) {
+      callback(q.shift());
+    } else {
+      this.stop(); // don't like this, should change to prototype eventually
+      setTimeout(empty, 5000);
+    }
+    return this;
+  }
+  
+  return {
+    push: function (item) {
+      var green = [], i;
+      if (!(item instanceof Array)) {
+        item = [item];
+      }
+      
+      if (timer == null && q.length == 0) {
+        this.start();
+      }
+      
+      for (i = 0; i < item.length; i++) {
+        if (!processed[item[i].id] && twitterlib.filter.match(item[i], ignoreRT)) {
+          processed[item[i].id] = true;
+          q.push(item[i]);
+        }
+      }
+      
+      // resort the q
+      q = q.sort(function (a, b) {
+        return a.id > b.id;
+      });
+      
+      return this;
+    },
+    start: function () {
+      if (timer == null) {
+        timer = setInterval(process, delay);
+      }
+      return this;
+    },
+    stop: function () {
+      clearInterval(timer);
+      timer = null;
+      return this;
+    },
+    empty: function (fn) {
+      empty = fn;
+      return this;
+    },
+    q: q,
+    next: process
+  };
+}; //.start();
+
+// selector to find elements below the fold
+$.extend($.expr[':'], {
+  below: function (a, i, m) {
+    var y = m[3];
+    return $(a).offset().top > y;
+  }
+});
+
+// schedule based processing
+var lastDue = null;
+var SCHEDULE = {
+  '9:45 AM' : '<p>Next: 9:45am</p><h2>Remy Sharp</h2><h3>Welcome to Full Frontal</h3><p>Hashtag for today:</p> <h1>#fullfrontal09</h1>',
+  '9:55 AM' : '<p>Next: 9:55am</p><h2>Christian Heilmann</h2><h3>Frontloaded and zipped up - do loose types sink ships?</h3>',
+  '10:40 AM' : '<p>Next: 10:40am</p><h2>Break</h2><p>Back in 30 minutes</p>',
+  '11:10 AM' : '<p>Next: 11:10am</p><h2>Robert Nyman</h2><h3>JavaScript: from birth to closure</h3>',
+  '11:55 AM' : '<p>Next: 11:55am</p><h2>Peter-Paul Koch</h2><h3>W3C Widgets</h3>',
+  // '12:40 PM' : '<p>12:40pm</p><h2>Lunch</h2><p>Back in 90 minutes</p>',
+  '2:10 PM' : '<p>Next: 2:10pm</p><h2>Stuart Langridge</h2><h3>New things that HTML5 provides to JavaScript hackers</h3>',
+  '2:55 PM' : '<p>Next: 2:55pm</p><h2>Todd Kloots</h2><h3>More accessible user interfaces with ARIA</h3>',
+  '3:40 PM' : '<p>Next: 3:40pm</p><h2>Break</h2><p>Back in 30 minutes</p>',
+  '4:10 PM' : '<p>Next: 4:10pm</p><h2>Jake Archibald</h2><h3>Optimising where it hurts</h3>',
+  '4:55 PM' : '<p>Next: 4:55pm</p><h2>Simon Willison</h2><h3>Surprise change topic!</h3>',
+  '7:00 PM' : '<div style="background: url(map.png) no-repeat 30% 50%; position: absolute; height: 440px; width: 100%;" />'
+};
+
+function parseTime(t) {
+  var parts = t.split(/[:\s]/g),
+      hour = ~~(parts[0]),
+      min = ~~(parts[1]);
+
+  if (parts[2] == 'PM' && hour != 12) hour += 12;
+
+  var d = new Date();
+  d.setHours(hour);
+  d.setMinutes(min);
+  
+  return d.getTime();
+}
+
+function findNextSchedule(delayM, after) {
+  var due = null, t = after ? parseTime(after) : (new Date()).getTime() - (delayM * 60 * 1000);  // wasteful?
+  
+  for (var s in SCHEDULE) {
+    due = s;
+    if (parseTime(s) > t) break;
+  }
+  
+  return s;
+}
+
+function showSchedule(due) {
+  if (due != lastDue) {
+    lastDue = due;
+    $('.content').html(SCHEDULE[due]);
+    if (due == '7:00 PM') {
+      $('.content').css({ padding: 0 });
+    }
+  }
+}
+
+function schedule() {
+  showSchedule(findNextSchedule(10)); // 10 minute delay padding
+}
+
+function nextDue() {
+  clearInterval(scheduleTimer);
+  showSchedule(findNextSchedule(0, lastDue));
+}
+
+var scheduleTimer = setInterval(schedule, 5000);
+schedule();
+
+$('.content').click(nextDue);
+
+// twitter related processing
+function renderTweet(data) {
+  var html = '<li><div class="tweet">';
+  html += '<div class="vcard"><a href="http://twitter.com/' + data.user.screen_name + '" class="url"><img style="height: 48px; width: 48px;" alt="' + data.user.name + '" class="photo fn" height="48" src="' + data.user.profile_image_url + '" width="48" /></a></div>';  
+  html += '<div class="hentry"><strong><a href="http://twitter.com/';
+  html += data.user.screen_name + '" ';
+  html += 'title="' + data.user.name + '">' + data.user.screen_name + '</a></strong> ';
+  html += '<span class="entry-content">';
+  html += twitterlib.ify.clean(data.text);
+  html += '</span> <span class="meta entry-meta"><a href="http://twitter.com/' + data.user.screen_name;
+  html += '/status/' + data.id + '" class="entry-date" rel="bookmark"><span class="published" title="';
+  html += data.created_at + '">' + twitterlib.time.datetime(data.created_at) + '</span></a> <span>from ';
+  html += data.source;
+  html += '</span></span></div></div></li>';
+  
+  // since_id is a global tracker to ensure we only hit Twitter for *new* tweets
+  since_id = data.id;
+  
+  return html;
+}
+
+function passToQueue(data) {
+  if (data.length) {
+    twitterQueue.push(data.reverse());
+  }
+}
+
+var since_id = 1;
+var run = function () {
+  twitterlib
+    .list('fullfrontalconf/delegates09', { since: since_id, filter: '-"i hope to win with nothing concealed or held back full"' }, passToQueue)
+    
+    // search should ignore the competition entries
+    .search('@fullfrontalconf OR #fullfrontalconf OR #fullfrontal2009 OR full-frontal.org OR #fullfrontal09', { filter: '-"I\'m there" -"i hope to win with nothing concealed or held back full"', since: since_id }, passToQueue);
+};
+
+// start a new queue and on the callback, render the tweet and animate it down
+var twitterQueue = new Queue(5000, function (item) {
+  // 1. stuff a new p tag, and animate it up - to force content down (with text:visibility:hidden)
+  // 2. drop effect from top of page
+  // 3. once effect complete, remove animated el, and show text to fake effect  
+  var tweet = $(renderTweet(item));
+  var tweetClone = tweet.clone().hide().css({ visibility: 'hidden' }).prependTo('#tweets').slideDown(1000);
+
+  tweet.css({ top: -200, position: 'absolute' }).prependTo('#tweets').animate({
+    top: 0
+  }, 1000, function () {
+    tweetClone.css({ visibility: 'visible' });
+    $(this).remove();
+  });
+  
+  // remove elements that aren't visible
+  $('#tweets p:below(' + window.innerHeight + ')').remove();
+}).empty(run);
+
+// kick off
+run();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
