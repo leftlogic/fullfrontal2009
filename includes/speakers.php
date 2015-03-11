@@ -11,7 +11,7 @@
         <p>Web Architect and standards evangelist at Yahoo UK: <em>Frontloaded and zipped up - do loose types sink ships</em>.</p>
         <p>Christian Heilmann is a geek and hacker by heart. He's been a professional web developer for about eleven years and worked his way through several agencies up to Yahoo where he delivered Yahoo Maps Europe and Yahoo Answers.</p>
         <p>He's written two and contributed to three books on JavaScript, web development and accessibility, lead distributed teams as a manager and made them work with one another and released dozens of online articles and hundreds of blog posts in the last few years.</p>
-        <p>He's been nominated standards champion of the year 2008 by .net magazine in the UK and currently sports the fashionable job title "International Developer Evangelist" spending his time going from conference to conference and university to university to speak and train people on systems provided by Yahoo and other web companies that want to make this web thing work well for everybody.</p>          
+        <p>He's been nominated standards champion of the year 2008 by .net magazine in the UK and currently sports the fashionable job title "International Developer Evangelist" spending his time going from conference to conference and university to university to speak and train people on systems provided by Yahoo and other web companies that want to make this web thing work well for everybody.</p>
         <section class="talk">
           <h3>Frontloaded and zipped up - do loose types sink ships?</h3>
           <p>JavaScript had a bumpy ride up to now, from its origins as a CGI-replacement, initiator of countless popups and annoying effects over the renaissance as Ajax enabler up to becoming wrapped up in libraries to work around the hell that is browser differences.</p>
@@ -19,7 +19,7 @@
           <p>Learn about some environments you can use JavaScript in securely and marvel at the magic and annoyances that are technologies that try to put a lock on the issue of JavaScript security.</p>
         </section>
         <p class="more"><a href="http://www.wait-till-i.com/2009/11/21/frontloaded-and-zipped-up-the-full-frontal-2009-keynote/">Christian's slides</a></p>
-        <p class="more"><a href="/talks/1-christian.mp3">Christian's talk (mp3 25Mb)</a></p>
+        <p class="more"><a href="http://media.ffconf.org/2009/1-christian.mp3">Christian's talk (mp3 25Mb)</a></p>
       </section>
 
       <section>
@@ -32,9 +32,9 @@
           <p>This presentation will give you a brief background to JavaScript, what it is and where it comes from. Then it will walk you through general pitfalls, best practices and more advanced topics such as object-orientation, scope and closures.</p>
         </section>
         <p class="more"><a href="http://www.slideshare.net/robnyman/javascript-from-birth-to-closure">Robert's slides</a></p>
-        <p class="more"><a href="/talks/2-robert.mp3">Roberts's talk (mp3 22Mb)</a></p>
+        <p class="more"><a href="http://media.ffconf.org/2009/2-robert.mp3">Roberts's talk (mp3 22Mb)</a></p>
       </section>
-      
+
       <section>
         <img src="/images/speakers/peter-paul.jpg" alt="Peter-Paul Koch speaking" />
         <h3><a href="#talk-peter-paul" class="reveal">Peter-Paul Koch</a> - <em>11.55am</em></h3>
@@ -49,7 +49,7 @@
           <p>If the mobile web is new to you you'll be shocked by the sheer size of the problems mobile devices create, and the sheer depth of our ignorance. Nonetheless, there is a thin ray of light at the end of the tunnel, and we'll end on a more positive note by looking to the future.</p>
         </section>
         <p class="more"><a href="http://www.quirksmode.org/blog/archives/2009/11/presentations_t.html">PPK's slides</a></p>
-        <p class="more"><a href="/talks/3-ppk.mp3">PPK's talk (mp3 23Mb)</a></p>
+        <p class="more"><a href="http://media.ffconf.org/2009/3-ppk.mp3">PPK's talk (mp3 23Mb)</a></p>
       </section>
 
       <section>
@@ -64,7 +64,7 @@
           <p>HTML5 brings new and exciting JavaScript things within our reach. Browser manufacturers are constantly changing and improving their JavaScript engines to give us, the web hackers, abilities that we never had before. </p>
           <p>Here you'll find information on the parts that are coming up that maybe you knew about, the parts coming up that you may be excited to discover, and some thoughts on what's standing between us and greatness.</p>
         </section>
-        <p class="more"><a href="/talks/4-sil.mp3">Stuarts's talk (mp3 22Mb)</a></p>
+        <p class="more"><a href="http://media.ffconf.org/2009/4-sil.mp3">Stuarts's talk (mp3 22Mb)</a></p>
       </section>
 
       <section>
@@ -79,13 +79,13 @@
           <p>Additionally, this talk will focus on the tools and methodologies developers need to test ARIA in order to ensure the best possible user experience.</p>
         </section>
         <p class="more"><a href="http://www.kloots.net/presentations/full-frontal-2009.zip">Todd's slides</a></p>
-        <p class="more"><a href="/talks/5-todd.mp3">Todd's talk (mp3 23Mb)</a></p>
+        <p class="more"><a href="http://media.ffconf.org/2009/5-todd.mp3">Todd's talk (mp3 23Mb)</a></p>
       </section>
 
       <section>
         <img src="/images/speakers/jake.jpg" alt="Jake Archibald speaking" />
         <h3><a href="#talk-jake" class="reveal">Jake Archibald</a> - <em>4.10pm</em></h3>
-        <p>Jake worked on the BBC's Glow JavaScript library, talking about: <em>Optimising where it hurts</em>.</p> 
+        <p>Jake worked on the BBC's Glow JavaScript library, talking about: <em>Optimising where it hurts</em>.</p>
         <p>Jake Archibald is a client-side web developer at the BBC working on Glow, a JavaScript library developed to meet the corporation’s design and accessibility standards. He also works with the BBC’s working groups which research and develop the corporation's technical Standards &amp; Guidelines.</p>
         <p>Outside of the BBC, Jake is a keen photographer, photoshopper, and keeps in touch with his previous life as a Flash &amp; PHP developer.</p>
         <section class="talk">
@@ -94,8 +94,8 @@
 
           <p>In this session we'll challenge assumptions about performance, using practical code to demonstrate the optimisations that really make a difference, and why they make a difference.</p>
         </section>
-        <p class="more"><a href="http://www.jakearchibald.co.uk/jsperformance/">Jake's slides</a></p>        
-        <p class="more"><a href="/talks/6-jake.mp3">Jake's talk (mp3 21Mb)</a></p>
+        <p class="more"><a href="http://www.jakearchibald.co.uk/jsperformance/">Jake's slides</a></p>
+        <p class="more"><a href="http://media.ffconf.org/2009/6-jake.mp3">Jake's talk (mp3 21Mb)</a></p>
       </section>
 
       <section>
@@ -112,6 +112,6 @@
           <p>JSON-P and other cross-domain skullduggery have enabled mashup possibilities far beyond JavaScript's original remit. Discover tricks for blasting apart the same origin policy and exploiting online services to build all manner of intriguing applications using nothing more than a sprinkling of JavaScript and static HTML.</p>
           <p>Learn how HTML5 will embrace such trickery and make JavaScript the natural choice for combining data in interesting new ways.</p>
         </section>
-        <p class="more"><a href="http://simonwillison.net/2009/Nov/23/node/">Simon's write up</a></p>        
-        <p class="more"><a href="/talks/7-simon.mp3">Simon's talk (mp3 21Mb)</a></p>
+        <p class="more"><a href="http://simonwillison.net/2009/Nov/23/node/">Simon's write up</a></p>
+        <p class="more"><a href="http://media.ffconf.org/2009/7-simon.mp3">Simon's talk (mp3 21Mb)</a></p>
       </section>
