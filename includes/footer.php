@@ -1,62 +1,8 @@
-<?php
-function relative_time($time_value) {
-    $delta = intval(time() - $time_value);
-
-    $r = '';
-    if ($delta < 60) {
-        $r = 'less than a minute ago';
-    } else if($delta < 120) {
-        $r = 'about a minute ago';
-    } else if($delta < (45*60)) {
-        $r = (intval($delta / 60)) . ' minutes ago';
-    } else if($delta < (2*90*60)) { // 2* because sometimes read 1 hours ago
-        $r = 'about an hour ago';
-    } else if($delta < (24*60*60)) {
-        $r = 'about ' . (intval($delta / 3600)) . ' hours ago';
-    } else if($delta < (48*60*60)) {
-        $r = '1 day ago';
-    } else if($delta < (7*24*60*60)) {
-        $r = (intval($delta / 86400)) . ' days ago';
-    } else if ($delta < (28*24*60*60)) {
-        $r = 'about a month ago';
-    } else {
-        $r = 'about ' . intval($delta / (28*24*60*60)) . ' months ago';
-    }
-
-    return $r;
-}
-
-$db = mysql_connect('localhost','fullfrontal','fullfrontal99');
-$tweet = array(
-    'message' => 'Twitter\'s playing up, but go ahead and follow us anyway for the latest info.', 
-    'createdDate' => date('r', time()),
-    'screen_name' => 'fullfrontalconf',
-    'id' => '1424262428'
-);
-
-if ($db) {
-    if (mysql_select_db('fullfrontal',$db)) {
-    	$query = 'select * from tweets where active="y" order by id desc limit 10';
-    	$tweets = array();
-	    if ($result = mysql_query($query,$db)) {
-	        while ($row = mysql_fetch_array($result)) {
-	            $tweets[] = $row;
-	        }
-            // $tweets[] = mysql_fetch_array($result);
-        }
-        
-        shuffle($tweets);
-        $tweet = $tweets[0];
-	}
-	
-} 
-mysql_close($db);
-?>
     </article>
     <aside>
       <section id="twitter">
         <h2>Twitter Feed</h2>
-        <p class="tweet"><?=$tweet['message']?> [via <a href="http://twitter.com/<?=$tweet['screen_name']?>">@<?=$tweet['screen_name']?></a> <a href="http://twitter.com/<?=$tweet['screen_name']?>/statuses/<?=$tweet['id']?>" class="permalink" title="<?=relative_time(strtotime($tweet['createdDate']))?>"><img src="/images/tiny_tweets.gif" height="10" width="17" alt="Twitter source" /></a>]</p>
+        <p class="tweet">One day affordable conference for front end deveopers. [via <a href="http://twitter.com/ffconf">@ffconf</a> <a href="http://twitter.com/ffconf" class="permalink"><img src="/images/tiny_tweets.gif" height="10" width="17" alt="Twitter source" /></a>]</p>
         <p class="follow">Follow <a href="http://twitter.com/fullfrontalconf">@fullfrontalconf</a> on Twitter</p>
       </section>
       <section id="sponsors">
@@ -68,7 +14,7 @@ mysql_close($db);
         <h2 class="media">Media Partners</h2>
         <div>
           <a href="http://netmag.co.uk"><img alt=".net magazine" src="/images/sponsors/dotnet.gif" /></a>
-          <a href="http://www.avtgroup.com/"><img alt="AVT" src="/images/sponsors/avt.gif" /></a>          
+          <a href="http://www.avtgroup.com/"><img alt="AVT" src="/images/sponsors/avt.gif" /></a>
         </div>
         <a href="http://oreillygmt.eu"><img alt="O'Reilly" src="/images/sponsors/oreilly.gif" /></a>
         <p>Interested in sponsoring the Full Frontal JavaScript Conference? <a href="mailto:events@leftlogic.com?subject=Sponsorship">Get in touch</a> to discuss the <a href="/sponsors.html">opportunities available</a>.</p>
