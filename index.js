@@ -3,6 +3,13 @@ const app = express();
 const port = process.env.PORT || 9000;
 const hbs = require('hbs');
 
+app.disable('x-powered-by');
+
+app.use((req, res, next) => {
+  res.setHeader('x-powered-by', 'ffconf');
+  next();
+});
+
 hbs.registerPartials(__dirname + '/views/partials');
 
 // data
