@@ -1,10 +1,11 @@
 {
   "name": "@remy/ffconf2009",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,7 @@
   },
   "homepage": "https://github.com/leftlogic/fullfrontal2009#readme",
   "dependencies": {
-    "express": "^4.14.0",
-    "hbs": "^4.0.0"
+    "express": "^4.15.3",
+    "hbs": "^4.0.1"
   }
 }
